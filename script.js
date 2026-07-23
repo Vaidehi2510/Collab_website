@@ -63,8 +63,13 @@ const progress = document.querySelector(".scroll-progress");
 const cursorGlow = document.querySelector(".cursor-glow");
 const menuButton = document.querySelector(".menu-toggle");
 const mobileMenu = document.querySelector(".mobile-menu");
-const video = document.querySelector(".video-stage video");
-const videoToggle = document.querySelector(".video-toggle");
+const brandReveal = document.querySelector("[data-brand-reveal]");
+const revealSkip = document.querySelector("[data-reveal-skip]");
+const logoTriggers = document.querySelectorAll("[data-logo-replay]");
+const brandRevealKey = "openteams:a3:intro-seen:v1";
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+let revealTimer;
+let revealTrigger;
 
 function updateScroll() {
   const scrollable = document.documentElement.scrollHeight - window.innerHeight;
@@ -99,18 +104,59 @@ mobileMenu.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => setMenu(false));
 });
 
-if (video && videoToggle) {
-  videoToggle.addEventListener("click", () => {
-    if (video.paused) {
-      video.play();
-      videoToggle.classList.remove("is-paused");
-      videoToggle.setAttribute("aria-label", "Pause launch animation");
-    } else {
-      video.pause();
-      videoToggle.classList.add("is-paused");
-      videoToggle.setAttribute("aria-label", "Play launch animation");
-    }
-  });
+function rememberBrandReveal() {
+  try {
+    localStorage.setItem(brandRevealKey, "seen");
+  } catch (_) {
+    // Storage can be unavailable in privacy modes; the reveal still works.
+  }
+}
+
+function finishBrandReveal() {
+  window.clearTimeout(revealTimer);
+  brandReveal.classList.remove("is-playing");
+  brandReveal.setAttribute("aria-hidden", "true");
+  document.documentElement.classList.remove("brand-first-visit");
+  document.body.classList.remove("brand-reveal-active");
+
+  if (revealTrigger) {
+    revealTrigger.focus({ preventScroll: true });
+    revealTrigger = null;
+  }
+}
+
+function playBrandReveal(trigger = null) {
+  window.clearTimeout(revealTimer);
+  setMenu(false);
+  revealTrigger = trigger;
+  rememberBrandReveal();
+  document.documentElement.classList.remove("brand-first-visit");
+  document.body.classList.add("brand-reveal-active");
+  brandReveal.setAttribute("aria-hidden", "false");
+  brandReveal.classList.remove("is-playing");
+  void brandReveal.offsetWidth;
+  brandReveal.classList.add("is-playing");
+
+  revealTimer = window.setTimeout(
+    finishBrandReveal,
+    reducedMotion.matches ? 250 : 4550,
+  );
+}
+
+logoTriggers.forEach((trigger) => {
+  trigger.addEventListener("click", () => playBrandReveal(trigger));
+});
+
+revealSkip.addEventListener("click", finishBrandReveal);
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && brandReveal.classList.contains("is-playing")) {
+    finishBrandReveal();
+  }
+});
+
+if (document.documentElement.classList.contains("brand-first-visit")) {
+  window.requestAnimationFrame(() => playBrandReveal());
 }
 
 const observer = new IntersectionObserver(

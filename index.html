@@ -17,29 +17,58 @@
     <title>Apollo A3 — OpenTeams Collab</title>
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/styles.css" />
+    <script>
+      try {
+        if (!localStorage.getItem("openteams:a3:intro-seen:v1")) {
+          document.documentElement.classList.add("brand-first-visit");
+        }
+      } catch (_) {
+        document.documentElement.classList.add("brand-first-visit");
+      }
+    </script>
   </head>
   <body>
+    <div class="brand-reveal" data-brand-reveal aria-hidden="true">
+      <button class="reveal-skip" type="button" data-reveal-skip>Skip intro</button>
+      <div class="reveal-ambient ambient-one" aria-hidden="true"></div>
+      <div class="reveal-ambient ambient-two" aria-hidden="true"></div>
+      <div class="reveal-stage">
+        <div class="reveal-mark" aria-hidden="true">
+          <span class="reveal-ring ring-outer"></span>
+          <span class="reveal-ring ring-inner"></span>
+          <img class="logo-piece piece-tl" src="/assets/openteams-mark.svg" alt="" />
+          <img class="logo-piece piece-tr" src="/assets/openteams-mark.svg" alt="" />
+          <img class="logo-piece piece-bl" src="/assets/openteams-mark.svg" alt="" />
+          <img class="logo-piece piece-br" src="/assets/openteams-mark.svg" alt="" />
+        </div>
+        <div class="reveal-wordmark" aria-label="OpenTeams">
+          <span class="word-open">Open</span><span class="word-teams">Teams</span>
+        </div>
+        <p class="reveal-tagline">Own your AI.</p>
+        <div class="reveal-edition"><span>Apollo</span><b>A3</b></div>
+      </div>
+      <div class="reveal-progress" aria-hidden="true"><span></span></div>
+    </div>
+    <noscript><style>.brand-reveal { display: none !important; }</style></noscript>
+
     <div class="scroll-progress" aria-hidden="true"></div>
     <div class="cursor-glow" aria-hidden="true"></div>
 
     <header class="site-header" data-header>
-      <a class="brand" href="#top" aria-label="OpenTeams Collab home">
-        <svg class="brand-mark" viewBox="0 0 44 44" aria-hidden="true">
-          <circle cx="22" cy="22" r="6.5" />
-          <path d="M22 2.5a9 9 0 0 1 9 9v4.2h-7.2v-4.2a1.8 1.8 0 1 0-3.6 0v4.2H13v-4.2a9 9 0 0 1 9-9Z" />
-          <path d="M41.5 22a9 9 0 0 1-9 9h-4.2v-7.2h4.2a1.8 1.8 0 1 0 0-3.6h-4.2V13h4.2a9 9 0 0 1 9 9Z" />
-          <path d="M22 41.5a9 9 0 0 1-9-9v-4.2h7.2v4.2a1.8 1.8 0 1 0 3.6 0v-4.2H31v4.2a9 9 0 0 1-9 9Z" />
-          <path d="M2.5 22a9 9 0 0 1 9-9h4.2v7.2h-4.2a1.8 1.8 0 1 0 0 3.6h4.2V31h-4.2a9 9 0 0 1-9-9Z" />
-        </svg>
-        <span class="brand-name">OpenTeams</span>
+      <button class="brand brand-trigger" type="button" data-logo-replay aria-label="Replay the OpenTeams logo animation">
+        <span class="brand-lockup">
+          <img class="brand-mark" src="/assets/openteams-mark.svg" alt="" />
+          <span class="brand-name"><span>Open</span><em>Teams</em></span>
+        </span>
         <span class="brand-divider"></span>
         <span class="brand-product">Collab</span>
-      </a>
+      </button>
 
       <nav class="desktop-nav" aria-label="Main navigation">
         <a href="#experience">What’s new</a>
         <a href="#explore">Explore A3</a>
         <a href="#start">Get started</a>
+        <a href="#issues">Known issues</a>
       </nav>
 
       <a class="nav-cta" href="#download">
@@ -56,6 +85,7 @@
       <a href="#experience">What’s new</a>
       <a href="#explore">Explore A3</a>
       <a href="#start">Get started</a>
+      <a href="#issues">Known issues</a>
       <a href="#download">Download A3</a>
     </div>
 
@@ -101,35 +131,44 @@
         </div>
 
         <div class="hero-visual reveal">
-          <div class="video-halo"></div>
-          <div class="video-shell">
-            <div class="video-chrome">
+          <div class="system-halo"></div>
+          <div class="a3-system">
+            <div class="system-topbar">
               <div class="window-dots"><i></i><i></i><i></i></div>
-              <span>APOLLO_A3 / LAUNCH</span>
-              <button class="video-toggle" type="button" aria-label="Pause launch animation">
-                <svg class="pause-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 4h3v12H6zM11 4h3v12h-3z" /></svg>
-                <svg class="play-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 9 6-9 6Z" /></svg>
-              </button>
+              <span>COLLAB / APOLLO A3</span>
+              <small><i></i>Release ready</small>
             </div>
-            <div class="video-stage">
-              <video autoplay muted loop playsinline poster="/assets/video-poster.png">
-                <source src="/assets/openteams-a3.mp4" type="video/mp4" />
-              </video>
-              <div class="video-tint"></div>
-              <div class="scan-line"></div>
-              <div class="video-badge">
+            <div class="system-map">
+              <div class="system-grid" aria-hidden="true"></div>
+              <svg class="system-connections" viewBox="0 0 720 440" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M360 220 C280 220 270 116 186 116" />
+                <path d="M360 220 C446 220 455 116 542 116" />
+                <path d="M360 220 C360 300 450 322 510 350" />
+              </svg>
+              <div class="system-core">
                 <span>A3</span>
-                <small>Build 03</small>
+                <small>Private AI<br />workspace</small>
+              </div>
+              <article class="system-node node-frames">
+                <span>01</span>
+                <div><b>Frames</b><small>Live context</small></div>
+                <i>12 active</i>
+              </article>
+              <article class="system-node node-connectors">
+                <span>02</span>
+                <div><b>Connectors</b><small>Your tools, in chat</small></div>
+                <i>4 ready</i>
+              </article>
+              <article class="system-node node-agents">
+                <span>03</span>
+                <div><b>Agents</b><small>Purpose-built AI</small></div>
+                <i>Parallel</i>
+              </article>
+              <div class="system-privacy">
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 9V6.8a4 4 0 0 1 8 0V9M4.5 9h11v8h-11z" /></svg>
+                <span><b>Private by default</b><small>Your context stays under your control</small></span>
               </div>
             </div>
-          </div>
-          <div class="floating-chip chip-frames">
-            <span class="chip-icon">◫</span>
-            Live Frames
-          </div>
-          <div class="floating-chip chip-agents">
-            <span class="chip-icon">✦</span>
-            Parallel Agents
           </div>
         </div>
 
@@ -282,13 +321,7 @@
           <div class="orbit-ring ring-one"></div>
           <div class="orbit-ring ring-two"></div>
           <div class="orbit-core">
-            <svg viewBox="0 0 44 44" aria-hidden="true">
-              <circle cx="22" cy="22" r="6.5" />
-              <path d="M22 2.5a9 9 0 0 1 9 9v4.2h-7.2v-4.2a1.8 1.8 0 1 0-3.6 0v4.2H13v-4.2a9 9 0 0 1 9-9Z" />
-              <path d="M41.5 22a9 9 0 0 1-9 9h-4.2v-7.2h4.2a1.8 1.8 0 1 0 0-3.6h-4.2V13h4.2a9 9 0 0 1 9 9Z" />
-              <path d="M22 41.5a9 9 0 0 1-9-9v-4.2h7.2v4.2a1.8 1.8 0 1 0 3.6 0v-4.2H31v4.2a9 9 0 0 1-9 9Z" />
-              <path d="M2.5 22a9 9 0 0 1 9-9h4.2v7.2h-4.2a1.8 1.8 0 1 0 0 3.6h4.2V31h-4.2a9 9 0 0 1-9-9Z" />
-            </svg>
+            <span class="orbit-logo"><img src="/assets/openteams-mark.svg" alt="" /></span>
             <b>Collab</b>
             <small>Your private AI</small>
           </div>
@@ -403,6 +436,62 @@
         </div>
       </section>
 
+      <section class="issues-section section" id="issues">
+        <div class="issues-intro">
+          <div>
+            <div class="section-kicker reveal"><span>06</span> Known issues</div>
+            <h2 class="display-title reveal">What to know<br /><span>before you start.</span></h2>
+          </div>
+          <div class="issues-note reveal">
+            <span>Release transparency</span>
+            <p>
+              A3 is a major step forward, and there are three known limitations
+              we want you to have up front.
+            </p>
+            <a href="/assets/a3-release-notes.pdf" target="_blank">Open full release notes ↗</a>
+          </div>
+        </div>
+
+        <ol class="issues-list">
+          <li class="issue-card reveal">
+            <div class="issue-topline">
+              <span class="issue-index">01</span>
+              <span class="issue-id">Issue #291</span>
+            </div>
+            <h3>Windows local models require an NVIDIA GPU.</h3>
+            <p>
+              Collab cannot run local models on Windows machines without an
+              NVIDIA GPU. Hub-deployed models remain available.
+            </p>
+            <span class="issue-platform">Windows · Local models</span>
+          </li>
+          <li class="issue-card reveal">
+            <div class="issue-topline">
+              <span class="issue-index">02</span>
+              <span class="issue-id">Issue #539</span>
+            </div>
+            <h3>Enabling several connectors takes an extra step.</h3>
+            <p>
+              The Connections menu closes after each connector toggle. Reopen
+              it to enable the next one—your selections are still saved.
+            </p>
+            <span class="issue-platform">Connectors · All platforms</span>
+          </li>
+          <li class="issue-card reveal">
+            <div class="issue-topline">
+              <span class="issue-index">03</span>
+              <span class="issue-id">Issue #249</span>
+            </div>
+            <h3>Long Hub replies may need a refresh on Windows.</h3>
+            <p>
+              A longer response might not render in the active chat until
+              Collab is reopened. The response is saved and remains in History.
+            </p>
+            <span class="issue-platform">Windows · Hub chat</span>
+          </li>
+        </ol>
+      </section>
+
       <section class="download-section section" id="download">
         <div class="download-glow"></div>
         <div class="download-inner">
@@ -443,16 +532,12 @@
 
     <footer>
       <div class="footer-top">
-        <a class="brand footer-brand" href="#top">
-          <svg class="brand-mark" viewBox="0 0 44 44" aria-hidden="true">
-            <circle cx="22" cy="22" r="6.5" />
-            <path d="M22 2.5a9 9 0 0 1 9 9v4.2h-7.2v-4.2a1.8 1.8 0 1 0-3.6 0v4.2H13v-4.2a9 9 0 0 1 9-9Z" />
-            <path d="M41.5 22a9 9 0 0 1-9 9h-4.2v-7.2h4.2a1.8 1.8 0 1 0 0-3.6h-4.2V13h4.2a9 9 0 0 1 9 9Z" />
-            <path d="M22 41.5a9 9 0 0 1-9-9v-4.2h7.2v4.2a1.8 1.8 0 1 0 3.6 0v-4.2H31v4.2a9 9 0 0 1-9 9Z" />
-            <path d="M2.5 22a9 9 0 0 1 9-9h4.2v7.2h-4.2a1.8 1.8 0 1 0 0 3.6h4.2V31h-4.2a9 9 0 0 1-9-9Z" />
-          </svg>
-          <span class="brand-name">OpenTeams</span>
-        </a>
+        <button class="brand brand-trigger footer-brand" type="button" data-logo-replay aria-label="Replay the OpenTeams logo animation">
+          <span class="brand-lockup">
+            <img class="brand-mark" src="/assets/openteams-mark.svg" alt="" />
+            <span class="brand-name"><span>Open</span><em>Teams</em></span>
+          </span>
+        </button>
         <p>Building the infrastructure for a distributed AI economy.</p>
         <div class="footer-links">
           <a href="https://openteams.com/collab/" target="_blank">Collab</a>
