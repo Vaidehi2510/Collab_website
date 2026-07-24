@@ -22,10 +22,10 @@ const features = {
     label: "READ-ONLY CONTEXT",
     title: "Your tools, in the conversation.",
     description:
-      "Every connector is read-only. Slack can only read public and private channels; it cannot post or edit messages.",
+      "Every connector has read-only access. Slack can read public and private channels.",
     items: [
-      "Read-only connector access",
-      "Slack: reads public & private channels only",
+      "Search across connected sources",
+      "No source editing or write-back",
       "Built-in voice to text",
     ],
     aside: ["New chat", "Daily digest", "Team updates", "Weekly planning"],
