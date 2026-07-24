@@ -1,6 +1,6 @@
-# Apollo A3 launch site
+# Collab release website
 
-An interactive static launch experience for OpenTeams Collab's Apollo A3 release.
+An interactive static launch experience for the new version of OpenTeams Collab.
 
 ## Local preview
 
@@ -21,4 +21,7 @@ Import this repository into Vercel. No build command or framework preset is requ
 - `index.html` — page content and accessible structure
 - `styles.css` — visual system, responsive layouts, and motion
 - `script.js` — one-time brand reveal, feature switching, platform detection, and scroll effects
-- `assets/` — official vector logo mark, release notes, and favicon
+- `assets/` — official vector logo mark, favicon, and source release notes
+
+The supplied source PDF is excluded from Vercel deployments because it contains
+the retired internal development name. The public release notes live in the site.

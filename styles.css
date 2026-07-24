@@ -2749,12 +2749,13 @@ footer {
 
   .a3-word {
     display: block;
+    width: max-content;
     margin-top: 7px;
   }
 
   .asterisk {
-    right: auto;
-    left: 88px;
+    right: -22px;
+    left: auto;
     font-size: 20px;
   }
 
