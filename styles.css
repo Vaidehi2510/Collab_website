@@ -545,7 +545,7 @@ svg {
   line-height: 0.84;
 }
 
-.a3-word {
+.collab-word {
   position: relative;
   display: inline-block;
   color: var(--orange);
@@ -670,7 +670,7 @@ svg {
   filter: blur(22px);
 }
 
-.a3-system {
+.collab-system {
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(167, 185, 255, 0.24);
@@ -679,7 +679,7 @@ svg {
   box-shadow: -20px 35px 90px rgba(0, 4, 22, 0.55);
 }
 
-.a3-system::after {
+.collab-system::after {
   position: absolute;
   inset: 0;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -804,9 +804,9 @@ svg {
 .system-core > span {
   color: var(--orange);
   font-family: "Manrope", sans-serif;
-  font-size: 48px;
+  font-size: 26px;
   font-weight: 800;
-  letter-spacing: -0.07em;
+  letter-spacing: -0.045em;
   line-height: 1;
 }
 
@@ -2747,7 +2747,7 @@ footer {
     font-size: 64px;
   }
 
-  .a3-word {
+  .collab-word {
     display: block;
     width: max-content;
     margin-top: 7px;
@@ -2801,7 +2801,7 @@ footer {
   }
 
   .system-core > span {
-    font-size: 40px;
+    font-size: 22px;
   }
 
   .system-node {

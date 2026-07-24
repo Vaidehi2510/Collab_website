@@ -1,6 +1,6 @@
-# Collab release website
+# Collab release notes website
 
-An interactive static launch experience for the new version of OpenTeams Collab.
+An interactive web release-notes experience for the latest OpenTeams Collab release.
 
 ## Local preview
 
@@ -21,7 +21,4 @@ Import this repository into Vercel. No build command or framework preset is requ
 - `index.html` — page content and accessible structure
 - `styles.css` — visual system, responsive layouts, and motion
 - `script.js` — one-time brand reveal, feature switching, platform detection, and scroll effects
-- `assets/` — official vector logo mark, favicon, and source release notes
-
-The supplied source PDF is excluded from Vercel deployments because it contains
-the retired internal development name. The public release notes live in the site.
+- `assets/` — official vector logo mark and favicon

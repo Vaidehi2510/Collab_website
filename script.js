@@ -9,14 +9,14 @@ const features = {
       "Groups, permissions & ACLs",
       "Complete change history",
     ],
-    aside: ["New chat", "Product launch", "Research notes", "A3 planning"],
+    aside: ["New chat", "Product launch", "Research notes", "Collab planning"],
     chatTitle: "Launch strategy",
     prompt: "Build a launch brief from our latest context.",
     responseTitle: "Working from 2 active Frames",
     response: "I’ll shape the launch around private, connected intelligence…",
     panelTitle: "Frames",
     panelMeta: "2 active",
-    panelItems: ["A3 release", "Brand voice", "Research"],
+    panelItems: ["Collab release", "Brand voice", "Research"],
   },
   connectors: {
     label: "READ-ONLY CONTEXT",
@@ -66,7 +66,7 @@ const mobileMenu = document.querySelector(".mobile-menu");
 const brandReveal = document.querySelector("[data-brand-reveal]");
 const revealSkip = document.querySelector("[data-reveal-skip]");
 const logoTriggers = document.querySelectorAll("[data-logo-replay]");
-const brandRevealKey = "openteams:a3:intro-seen:v1";
+const brandRevealKey = "openteams:collab:intro-seen:v2";
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 let revealTimer;
 let revealTrigger;
