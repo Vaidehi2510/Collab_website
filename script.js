@@ -228,14 +228,6 @@ tabs.forEach((tab) => {
   tab.addEventListener("click", () => updateFeature(tab.dataset.feature));
 });
 
-const userPlatform = navigator.userAgent.includes("Win")
-  ? "windows"
-  : navigator.userAgent.includes("Linux")
-    ? "linux"
-    : "mac";
-
-document.querySelector(`[data-platform="${userPlatform}"]`)?.classList.add("is-detected");
-
 document.querySelectorAll(".magnetic").forEach((element) => {
   element.addEventListener("mousemove", (event) => {
     const bounds = element.getBoundingClientRect();
