@@ -433,6 +433,12 @@ svg {
   stroke-width: 1.8;
 }
 
+.nav-cta-disabled {
+  border: 0;
+  opacity: 0.72;
+  cursor: not-allowed;
+}
+
 .menu-toggle,
 .mobile-menu {
   display: none;
@@ -2242,6 +2248,20 @@ svg {
   box-shadow: 0 18px 38px rgba(255, 255, 255, 0.12);
 }
 
+.button:disabled,
+.button.is-disabled {
+  opacity: 0.68;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.button:disabled:hover,
+.button.is-disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
 .button-outline-light {
   border-color: rgba(255, 255, 255, 0.14);
   color: white;
@@ -2268,22 +2288,24 @@ svg {
   text-transform: uppercase;
 }
 
-.platform-panel > a {
+.platform-panel > .platform-option {
   display: grid;
+  width: 100%;
   grid-template-columns: 42px 1fr auto;
   gap: 13px;
   align-items: center;
   padding: 15px 11px;
+  border: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  transition: background 0.25s;
+  color: white;
+  background: transparent;
+  text-align: left;
+  cursor: not-allowed;
 }
 
-.platform-panel > a:hover {
-  background: rgba(255, 255, 255, 0.045);
-}
-
-.platform-panel > a.is-detected {
+.platform-panel > .platform-option.is-detected {
   margin: 0 -8px;
+  width: calc(100% + 16px);
   padding-right: 19px;
   padding-left: 19px;
   border-radius: 12px;
@@ -2304,7 +2326,7 @@ svg {
 .platform-icon.windows { color: #8fc8ff; }
 .platform-icon.linux { color: #ffd878; }
 
-.platform-panel a > span:nth-child(2) {
+.platform-panel .platform-option > span:nth-child(2) {
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -2319,9 +2341,13 @@ svg {
   font-size: 9px;
 }
 
-.platform-panel a > i {
+.platform-panel .platform-option > i {
   color: rgba(255, 255, 255, 0.36);
+  font-size: 9px;
+  font-weight: 700;
   font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 footer {
@@ -2578,6 +2604,14 @@ footer {
   .mobile-menu.is-open {
     opacity: 1;
     pointer-events: auto;
+  }
+
+  .mobile-unavailable {
+    color: rgba(255, 255, 255, 0.42);
+    font-size: 16px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: not-allowed;
   }
 
   .hero {

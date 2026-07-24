@@ -22,10 +22,10 @@ const features = {
     label: "READ-ONLY CONTEXT",
     title: "Your tools, in the conversation.",
     description:
-      "Bring read-only context from Drive, Slack, Gmail, and Calendar into chat. Slack access includes public and private channels only.",
+      "Every connector is read-only. Slack can only read public and private channels; it cannot post or edit messages.",
     items: [
       "Read-only connector access",
-      "Slack: public & private channels only",
+      "Slack: reads public & private channels only",
       "Built-in voice to text",
     ],
     aside: ["New chat", "Daily digest", "Team updates", "Weekly planning"],
@@ -228,33 +228,12 @@ tabs.forEach((tab) => {
   tab.addEventListener("click", () => updateFeature(tab.dataset.feature));
 });
 
-const platformData = {
-  mac: {
-    label: "Download for macOS",
-    href: "https://openteams-collab.s3.us-west-2.amazonaws.com/collab-desktop-macos.dmg",
-  },
-  windows: {
-    label: "Download for Windows",
-    href: "https://openteams-collab.s3.us-west-2.amazonaws.com/collab-desktop-windows-amd64-installer.exe",
-  },
-  linux: {
-    label: "Download for Linux",
-    href: "https://openteams-collab.s3.us-west-2.amazonaws.com/collab-desktop-linux-amd64.tar.gz",
-  },
-};
-
 const userPlatform = navigator.userAgent.includes("Win")
   ? "windows"
   : navigator.userAgent.includes("Linux")
     ? "linux"
     : "mac";
 
-const primaryDownload = document.querySelector("[data-primary-download]");
-const primaryDownloadLabel = document.querySelector("[data-download-label]");
-const selectedPlatform = platformData[userPlatform];
-
-primaryDownload.href = selectedPlatform.href;
-primaryDownloadLabel.textContent = selectedPlatform.label;
 document.querySelector(`[data-platform="${userPlatform}"]`)?.classList.add("is-detected");
 
 document.querySelectorAll(".magnetic").forEach((element) => {
