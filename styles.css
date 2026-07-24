@@ -662,10 +662,11 @@ svg {
 .hero-visual {
   position: absolute;
   z-index: 3;
-  top: 53%;
+  top: auto;
   right: max(0px, calc((100vw - 1440px) / 2));
+  bottom: 58px;
   width: min(53vw, 760px);
-  transform: translateY(-45%) perspective(1200px) rotateY(-7deg) rotateX(2deg);
+  transform: perspective(1200px) rotateY(-7deg) rotateX(2deg);
 }
 
 .system-halo {
@@ -2093,7 +2094,7 @@ svg {
 
 .issue-card {
   position: relative;
-  min-height: 320px;
+  min-height: 370px;
   padding: 26px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -2515,7 +2516,9 @@ footer {
   .hero-visual {
     top: 60%;
     right: -80px;
+    bottom: auto;
     width: 68vw;
+    transform: translateY(-45%) perspective(1200px) rotateY(-7deg) rotateX(2deg);
   }
 
   .system-node {

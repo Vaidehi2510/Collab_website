@@ -11,7 +11,7 @@
     <meta property="og:title" content="Collab Release Notes — OpenTeams" />
     <meta
       property="og:description"
-      content="Explore what’s new in Collab, how to use it, and the known issues in this release."
+      content="Explore what’s new in Collab, how to use it, and what we’re still polishing for this release."
     />
     <meta property="og:type" content="website" />
     <title>Collab Release Notes — OpenTeams</title>
@@ -68,7 +68,7 @@
         <a href="#experience">What’s new</a>
         <a href="#explore">Release highlights</a>
         <a href="#start">Get started</a>
-        <a href="#issues">Known issues</a>
+        <a href="#polishing">What we’re polishing</a>
       </nav>
 
       <button class="nav-cta nav-cta-disabled" type="button" disabled>
@@ -85,7 +85,7 @@
       <a href="#experience">What’s new</a>
       <a href="#explore">Release highlights</a>
       <a href="#start">Get started</a>
-      <a href="#issues">Known issues</a>
+      <a href="#polishing">What we’re polishing</a>
       <span class="mobile-unavailable" aria-disabled="true">Collab coming soon</span>
     </div>
 
@@ -411,19 +411,19 @@
         </div>
       </section>
 
-      <section class="issues-section section" id="issues">
+      <section class="issues-section section" id="polishing">
         <div class="issues-intro">
           <div>
-            <div class="section-kicker reveal"><span>06</span> Known issues</div>
-            <h2 class="display-title reveal">What to know<br /><span>before you start.</span></h2>
+            <div class="section-kicker reveal"><span>06</span> What we’re polishing</div>
+            <h2 class="display-title reveal">Getting better<br /><span>with every build.</span></h2>
           </div>
           <div class="issues-note reveal">
-            <span>Release transparency</span>
+            <span>Active improvements</span>
             <p>
-              This Collab release is a major step forward, and there are three
-              known limitations we want you to have up front.
+              We’re actively polishing three areas. Each has a practical
+              workaround so you can keep moving.
             </p>
-            <a href="#explore">Explore release highlights ↓</a>
+            <a href="#explore">Review release highlights ↑</a>
           </div>
         </div>
 
@@ -433,34 +433,34 @@
               <span class="issue-index">01</span>
               <span class="issue-id">Issue #291</span>
             </div>
-            <h3>Windows local models require an NVIDIA GPU.</h3>
+            <h3>Local models require an NVIDIA GPU on Windows.</h3>
             <p>
-              Collab cannot run local models on Windows machines without an
-              NVIDIA GPU. Hub-deployed models remain available.
+              On Windows machines without an NVIDIA GPU, launching a local
+              model fails. Use a Hub-hosted model as a workaround.
             </p>
             <span class="issue-platform">Windows · Local models</span>
           </li>
           <li class="issue-card reveal">
             <div class="issue-topline">
               <span class="issue-index">02</span>
-              <span class="issue-id">Issue #539</span>
+              <span class="issue-id">Issue #172</span>
             </div>
-            <h3>Enabling several connectors takes an extra step.</h3>
+            <h3>Chat can become unresponsive if the network drops mid-conversation.</h3>
             <p>
-              The Connections menu closes after each connector toggle. Reopen
-              it to enable the next one—your selections are still saved.
+              Losing connectivity during a chat may leave it stuck. Restarting
+              the conversation restores normal behavior.
             </p>
-            <span class="issue-platform">Connectors · All platforms</span>
+            <span class="issue-platform">Chat · Connectivity</span>
           </li>
           <li class="issue-card reveal">
             <div class="issue-topline">
               <span class="issue-index">03</span>
               <span class="issue-id">Issue #249</span>
             </div>
-            <h3>Long Hub replies may need a refresh on Windows.</h3>
+            <h3>Windows: longer Hub chat responses may not appear until the app is reopened.</h3>
             <p>
-              A longer response might not render in the active chat until
-              Collab is reopened. The response is saved and remains in History.
+              Substantive responses are saved but can fail to render in the
+              active chat. Close and reopen Collab; they will appear in History.
             </p>
             <span class="issue-platform">Windows · Hub chat</span>
           </li>
