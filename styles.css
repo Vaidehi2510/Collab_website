@@ -2283,8 +2283,8 @@ svg {
   text-transform: uppercase;
 }
 
-/* Informational only — openteams.com/collab detects the platform and serves
-   the matching build, so these rows are labels rather than controls. */
+/* Informational only — downloads happen at openteams.com/collab, so these
+   rows are labels rather than controls. */
 .platform-panel > .platform-option {
   display: grid;
   width: 100%;
