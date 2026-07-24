@@ -22,7 +22,7 @@ const features = {
     label: "READ-ONLY CONTEXT",
     title: "Your tools, in the conversation.",
     description:
-      "Every connector has read-only access. Slack can read only public and private channels.",
+      "Every connector has read-only access, bringing source context into the conversation without changing it.",
     items: [
       "Search across connected sources",
       "No source editing or write-back",
@@ -38,23 +38,23 @@ const features = {
     panelItems: ["Google Drive", "Slack", "Gmail"],
   },
   agents: {
-    label: "PURPOSE-BUILT AI",
-    title: "A team, built around your work.",
+    label: "PURPOSE-BUILT COGS",
+    title: "Focused work, built around your context.",
     description:
-      "Configure Agents with the Frames, tools, skills, and model they need. Run work in parallel or hand off a longer task.",
+      "Configure Cogs with the Frames, tools, skills, and models they need. Run work in parallel or hand off a longer task.",
     items: [
-      "Parallel agent execution",
-      "Per-agent skills & models",
+      "Parallel Cog execution",
+      "Per-Cog skills & models",
       "CoWork-style Tasks",
     ],
-    aside: ["New task", "Launch team", "Research agent", "Content agent"],
+    aside: ["New task", "Launch team", "Research Cog", "Content Cog"],
     chatTitle: "Launch team",
     prompt: "Create a launch plan and assign the supporting work.",
-    responseTitle: "3 Agents working in parallel",
+    responseTitle: "3 Cogs working in parallel",
     response: "Research, messaging, and performance briefs are now underway…",
-    panelTitle: "Agents",
+    panelTitle: "Cogs",
     panelMeta: "3 working",
-    panelItems: ["Research Agent", "Writing Agent", "Data Agent"],
+    panelItems: ["Research Cog", "Writing Cog", "Data Cog"],
   },
 };
 
@@ -88,12 +88,19 @@ if (window.matchMedia("(pointer: fine)").matches) {
   });
 }
 
-function setMenu(open) {
+function setMenu(open, restoreFocus = true) {
   menuButton.setAttribute("aria-expanded", String(open));
   menuButton.setAttribute("aria-label", open ? "Close menu" : "Open menu");
   mobileMenu.setAttribute("aria-hidden", String(!open));
+  mobileMenu.inert = !open;
   mobileMenu.classList.toggle("is-open", open);
   document.body.classList.toggle("menu-open", open);
+
+  if (open) {
+    mobileMenu.querySelector("a")?.focus({ preventScroll: true });
+  } else if (restoreFocus) {
+    menuButton.focus({ preventScroll: true });
+  }
 }
 
 menuButton.addEventListener("click", () => {
@@ -101,7 +108,7 @@ menuButton.addEventListener("click", () => {
 });
 
 mobileMenu.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => setMenu(false));
+  link.addEventListener("click", () => setMenu(false, false));
 });
 
 function rememberBrandReveal() {
@@ -116,6 +123,7 @@ function finishBrandReveal() {
   window.clearTimeout(revealTimer);
   brandReveal.classList.remove("is-playing");
   brandReveal.setAttribute("aria-hidden", "true");
+  brandReveal.inert = true;
   document.documentElement.classList.remove("brand-first-visit");
   document.body.classList.remove("brand-reveal-active");
 
@@ -127,15 +135,17 @@ function finishBrandReveal() {
 
 function playBrandReveal(trigger = null) {
   window.clearTimeout(revealTimer);
-  setMenu(false);
+  setMenu(false, false);
   revealTrigger = trigger;
   rememberBrandReveal();
   document.documentElement.classList.remove("brand-first-visit");
   document.body.classList.add("brand-reveal-active");
   brandReveal.setAttribute("aria-hidden", "false");
+  brandReveal.inert = false;
   brandReveal.classList.remove("is-playing");
   void brandReveal.offsetWidth;
   brandReveal.classList.add("is-playing");
+  revealSkip.focus({ preventScroll: true });
 
   revealTimer = window.setTimeout(
     finishBrandReveal,
@@ -150,8 +160,37 @@ logoTriggers.forEach((trigger) => {
 revealSkip.addEventListener("click", finishBrandReveal);
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && brandReveal.classList.contains("is-playing")) {
+  const revealIsPlaying = brandReveal.classList.contains("is-playing");
+  const menuIsOpen = menuButton.getAttribute("aria-expanded") === "true";
+
+  if (event.key === "Escape" && revealIsPlaying) {
     finishBrandReveal();
+    return;
+  }
+
+  if (event.key === "Tab" && revealIsPlaying) {
+    event.preventDefault();
+    revealSkip.focus({ preventScroll: true });
+    return;
+  }
+
+  if (event.key === "Escape" && menuIsOpen) {
+    setMenu(false);
+    return;
+  }
+
+  if (event.key === "Tab" && menuIsOpen) {
+    const menuLinks = [...mobileMenu.querySelectorAll("a")];
+    const firstLink = menuLinks[0];
+    const lastLink = menuLinks.at(-1);
+
+    if (event.shiftKey && document.activeElement === firstLink) {
+      event.preventDefault();
+      lastLink.focus();
+    } else if (!event.shiftKey && document.activeElement === lastLink) {
+      event.preventDefault();
+      firstLink.focus();
+    }
   }
 });
 
@@ -180,6 +219,7 @@ document.querySelectorAll(".reveal").forEach((element, index) => {
 const tabs = document.querySelectorAll(".feature-tab");
 const canvas = document.querySelector("[data-feature-canvas]");
 const mock = document.querySelector(".product-mock");
+let featureSwapTimer;
 
 function updateFeature(key) {
   const feature = features[key];
@@ -189,11 +229,14 @@ function updateFeature(key) {
     const active = tab.dataset.feature === key;
     tab.classList.toggle("is-active", active);
     tab.setAttribute("aria-selected", String(active));
+    tab.setAttribute("tabindex", active ? "0" : "-1");
+    if (active) canvas.setAttribute("aria-labelledby", tab.id);
   });
 
+  window.clearTimeout(featureSwapTimer);
   mock.classList.add("is-swapping");
 
-  window.setTimeout(() => {
+  featureSwapTimer = window.setTimeout(() => {
     canvas.querySelector("[data-feature-label]").textContent = feature.label;
     canvas.querySelector("[data-feature-title]").textContent = feature.title;
     canvas.querySelector("[data-feature-description]").textContent = feature.description;
@@ -226,6 +269,21 @@ function updateFeature(key) {
 
 tabs.forEach((tab) => {
   tab.addEventListener("click", () => updateFeature(tab.dataset.feature));
+  tab.addEventListener("keydown", (event) => {
+    const currentIndex = [...tabs].indexOf(tab);
+    let nextIndex;
+
+    if (event.key === "ArrowRight") nextIndex = (currentIndex + 1) % tabs.length;
+    if (event.key === "ArrowLeft") nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+    if (event.key === "Home") nextIndex = 0;
+    if (event.key === "End") nextIndex = tabs.length - 1;
+    if (nextIndex === undefined) return;
+
+    event.preventDefault();
+    const nextTab = tabs[nextIndex];
+    updateFeature(nextTab.dataset.feature);
+    nextTab.focus();
+  });
 });
 
 const userPlatform = navigator.userAgent.includes("Win")

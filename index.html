@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Collab release notes for the latest OpenTeams Collab release—with live Frames, read-only connected context, and purpose-built Agents."
+      content="Collab release notes for the latest OpenTeams Collab release—with live Frames, read-only connected context, and purpose-built Cogs."
     />
-    <meta name="theme-color" content="#06112f" />
+    <meta name="theme-color" content="#000f3a" />
     <meta property="og:title" content="Collab Release Notes — OpenTeams" />
     <meta
       property="og:description"
@@ -28,7 +28,15 @@
     </script>
   </head>
   <body>
-    <div class="brand-reveal" data-brand-reveal aria-hidden="true">
+    <div
+      class="brand-reveal"
+      data-brand-reveal
+      role="dialog"
+      aria-modal="true"
+      aria-label="OpenTeams introduction"
+      aria-hidden="true"
+      inert
+    >
       <button class="reveal-skip" type="button" data-reveal-skip>Skip intro</button>
       <div class="reveal-ambient ambient-one" aria-hidden="true"></div>
       <div class="reveal-ambient ambient-two" aria-hidden="true"></div>
@@ -81,7 +89,7 @@
       </button>
     </header>
 
-    <div class="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu" aria-hidden="true" inert>
       <a href="#experience">What’s new</a>
       <a href="#explore">Release highlights</a>
       <a href="#start">Get started</a>
@@ -107,11 +115,11 @@
             </span>
           </h1>
           <p class="hero-lede reveal">
-            Your context. Your agents. <span>Your AI.</span>
+            Your context. Your Cogs. <span>Your AI.</span>
           </p>
           <p class="hero-summary reveal">
             The biggest Collab release yet—bringing live Frames, read-only
-            connectors, and purpose-built Agents into one private AI workspace.
+            connectors, and purpose-built Cogs into one private AI workspace.
           </p>
           <div class="hero-actions reveal">
             <a class="button button-primary magnetic" href="#explore">
@@ -155,7 +163,7 @@
               </article>
               <article class="system-node node-agents">
                 <span>03</span>
-                <div><b>Agents</b><small>Purpose-built AI</small></div>
+                <div><b>Cogs</b><small>Purpose-built AI</small></div>
                 <i>Parallel</i>
               </article>
               <div class="system-privacy">
@@ -183,7 +191,7 @@
             <p>
               The new version of Collab is a connected operating layer for your work.
               Bring the right context into every conversation, compose focused
-              assistants, and keep control of what’s shared.
+              Cogs, and keep control of what’s shared.
             </p>
             <div class="private-pill">
               <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -199,7 +207,15 @@
         <div class="section-kicker reveal"><span>02</span> Collab highlights</div>
         <div class="feature-layout">
           <div class="feature-nav reveal" role="tablist" aria-label="Collab release feature areas">
-            <button class="feature-tab is-active" role="tab" aria-selected="true" data-feature="frames">
+            <button
+              class="feature-tab is-active"
+              id="feature-tab-frames"
+              role="tab"
+              aria-selected="true"
+              aria-controls="feature-panel"
+              tabindex="0"
+              data-feature="frames"
+            >
               <span class="tab-number">01</span>
               <span>
                 <strong>Frames</strong>
@@ -207,7 +223,15 @@
               </span>
               <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
             </button>
-            <button class="feature-tab" role="tab" aria-selected="false" data-feature="connectors">
+            <button
+              class="feature-tab"
+              id="feature-tab-connectors"
+              role="tab"
+              aria-selected="false"
+              aria-controls="feature-panel"
+              tabindex="-1"
+              data-feature="connectors"
+            >
               <span class="tab-number">02</span>
               <span>
                 <strong>Connectors</strong>
@@ -215,17 +239,32 @@
               </span>
               <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
             </button>
-            <button class="feature-tab" role="tab" aria-selected="false" data-feature="agents">
+            <button
+              class="feature-tab"
+              id="feature-tab-cogs"
+              role="tab"
+              aria-selected="false"
+              aria-controls="feature-panel"
+              tabindex="-1"
+              data-feature="agents"
+            >
               <span class="tab-number">03</span>
               <span>
-                <strong>Agents</strong>
-                <small>Purpose-built teammates</small>
+                <strong>Cogs</strong>
+                <small>Built for focused work</small>
               </span>
               <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
             </button>
           </div>
 
-          <div class="feature-canvas reveal" data-feature-canvas>
+          <div
+            class="feature-canvas reveal"
+            id="feature-panel"
+            role="tabpanel"
+            aria-labelledby="feature-tab-frames"
+            tabindex="0"
+            data-feature-canvas
+          >
             <div class="canvas-grid"></div>
             <div class="feature-copy">
               <p class="feature-label" data-feature-label>LIVE CONTEXT</p>
@@ -288,7 +327,8 @@
           </div>
           <p class="reveal">
             Every connector has read-only access, so Collab can bring context
-            into the conversation without editing source data.
+            into the conversation without editing source data. For Slack,
+            access includes only public and private channels.
           </p>
         </div>
 
@@ -317,14 +357,14 @@
         <div class="agent-backdrop"></div>
         <div class="agent-grid">
           <div class="agent-copy">
-            <div class="section-kicker light reveal"><span>04</span> Agents</div>
+            <div class="section-kicker light reveal"><span>04</span> Cogs</div>
             <h2 class="reveal">Delegate the task.<br /><em>Keep the control.</em></h2>
             <p class="reveal">
-              Create focused Agents with the right Frames, tools, skills, and
-              model. Run them in parallel or hand off longer CoWork-style tasks.
+              Create focused Cogs with the right Frames, tools, skills, and
+              models. Run them in parallel or hand off longer CoWork-style tasks.
             </p>
             <div class="agent-points reveal">
-              <span><i>01</i> Per-agent skills</span>
+              <span><i>01</i> Per-Cog skills</span>
               <span><i>02</i> Parallel execution</span>
               <span><i>03</i> Persistent history</span>
             </div>
@@ -332,7 +372,7 @@
 
           <div class="agent-board reveal">
             <div class="board-header">
-              <span><i class="status-dot"></i>3 agents active</span>
+              <span><i class="status-dot"></i>3 Cogs active</span>
               <small>Live workspace</small>
             </div>
             <div class="agent-card agent-card-main">
@@ -344,22 +384,22 @@
             <div class="agent-branch"></div>
             <div class="agent-card">
               <div class="agent-avatar blue">R</div>
-              <div><b>Research Agent</b><small>Reviewing 14 sources</small></div>
+              <div><b>Research Cog</b><small>Reviewing 14 sources</small></div>
               <span class="agent-status">68%</span>
             </div>
             <div class="agent-card">
               <div class="agent-avatar orange">W</div>
-              <div><b>Writing Agent</b><small>Drafting campaign brief</small></div>
+              <div><b>Writing Cog</b><small>Drafting campaign brief</small></div>
               <span class="agent-status">42%</span>
             </div>
             <div class="agent-card">
               <div class="agent-avatar green">D</div>
-              <div><b>Data Agent</b><small>Metrics ready</small></div>
+              <div><b>Data Cog</b><small>Metrics ready</small></div>
               <span class="agent-status done">Done</span>
             </div>
             <div class="task-pulse">
               <i></i><i></i><i></i>
-              <span>Agents are building your launch plan</span>
+              <span>Cogs are building your launch plan</span>
             </div>
           </div>
         </div>
@@ -397,9 +437,9 @@
           <article class="try-card reveal">
             <span class="try-number">04</span>
             <div class="try-icon"><svg viewBox="0 0 32 32"><circle cx="16" cy="12" r="5" /><path d="M7 27c1-6 4-9 9-9s8 3 9 9M24 8l3-3M25 12h4" /></svg></div>
-            <h3>Create your first Agent</h3>
+            <h3>Create your first Cog</h3>
             <p>Choose Frames, tools, skills, and a model—then hand it a focused task.</p>
-            <span class="try-tag">Agents</span>
+            <span class="try-tag">Cogs</span>
           </article>
           <article class="try-card reveal">
             <span class="try-number">05</span>
@@ -433,12 +473,12 @@
               <span class="issue-index">01</span>
               <span class="issue-id">Issue #291</span>
             </div>
-            <h3>Local models require an NVIDIA GPU.</h3>
+            <h3>Local models may fail without an NVIDIA GPU.</h3>
             <p>
-              On machines without an NVIDIA GPU, launching a local model fails.
-              Use a Hub-hosted model as a workaround.
+              On machines without an NVIDIA GPU, launching a local model can
+              sometimes fail. Use a Hub-hosted model as a workaround.
             </p>
-            <span class="issue-platform">Local models · NVIDIA GPU required</span>
+            <span class="issue-platform">Local models · NVIDIA GPU recommended</span>
           </li>
           <li class="issue-card reveal">
             <div class="issue-topline">
