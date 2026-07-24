@@ -67,6 +67,7 @@
       <nav class="desktop-nav" aria-label="Main navigation">
         <a href="#experience">What’s new</a>
         <a href="#explore">Release highlights</a>
+        <a href="#demos">Demos</a>
         <a href="#start">Get started</a>
         <a href="#polishing">What we’re polishing</a>
       </nav>
@@ -84,6 +85,7 @@
     <div class="mobile-menu" aria-hidden="true">
       <a href="#experience">What’s new</a>
       <a href="#explore">Release highlights</a>
+      <a href="#demos">Demo videos</a>
       <a href="#start">Get started</a>
       <a href="#polishing">What we’re polishing</a>
       <span class="mobile-unavailable" aria-disabled="true">Collab coming soon</span>
@@ -278,10 +280,78 @@
         </div>
       </section>
 
+      <section class="demo-section section" id="demos">
+        <div class="section-kicker reveal"><span>03</span> See it in action</div>
+        <div class="demo-heading">
+          <h2 class="display-title reveal">Watch the release<br /><span>in motion.</span></h2>
+          <div class="demo-note reveal">
+            <p>
+              Short walkthroughs recorded in this build—Frames in a live chat,
+              read-only connectors, voice to text, and the setup to do before
+              your first run. Two more are still being recorded and will land
+              here before launch.
+            </p>
+            <a href="https://drive.google.com/drive/folders/1_9GmsQvmnYKDYJaNM2aYXV_dd1xsHPN1" target="_blank" rel="noopener noreferrer">Open the full library ↗<span class="visually-hidden"> (opens in a new tab)</span></a>
+          </div>
+        </div>
+
+        <div class="demo-list">
+          <a class="demo-card reveal" href="https://drive.google.com/file/d/1FAALWZtNpUBN52-MTwJSErgSA18_tNct/view" target="_blank" rel="noopener noreferrer">
+            <span class="demo-number">01</span>
+            <span class="demo-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7.5v9l7.5-4.5z" /></svg></span>
+            <h3>The Frames panel</h3>
+            <p>Toggle context on and off without leaving the conversation, then confirm which Frames shaped the answer.</p>
+            <span class="demo-meta"><em>Frames</em><i>Watch video<span class="visually-hidden"> (opens in a new tab)</span></i></span>
+          </a>
+          <a class="demo-card reveal" href="https://drive.google.com/file/d/16TfefwuFl9te4WsIjSpM7zUOE9lsLwh8/view" target="_blank" rel="noopener noreferrer">
+            <span class="demo-number">02</span>
+            <span class="demo-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7.5v9l7.5-4.5z" /></svg></span>
+            <h3>Frame Groups</h3>
+            <p>Bundle related Frames into a group, then let dynamic injection pull the right context into each chat.</p>
+            <span class="demo-meta"><em>Organize</em><i>Watch video<span class="visually-hidden"> (opens in a new tab)</span></i></span>
+          </a>
+          <a class="demo-card reveal" href="https://drive.google.com/file/d/1IqsE8xrn7Q6pVv8TzdZRRD3ezrcZSlm0/view" target="_blank" rel="noopener noreferrer">
+            <span class="demo-number">03</span>
+            <span class="demo-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7.5v9l7.5-4.5z" /></svg></span>
+            <h3>Frame fields, sharing, and history</h3>
+            <p>Set descriptions and visibility, share a Frame across multiple owners with ACLs, then trace every change through history.</p>
+            <span class="demo-meta"><em>Permissions</em><i>Watch video<span class="visually-hidden"> (opens in a new tab)</span></i></span>
+          </a>
+          <a class="demo-card reveal" href="https://drive.google.com/file/d/1GF0HZ5D__GgjnUX4S4CrAhHYEBTaEsi0/view" target="_blank" rel="noopener noreferrer">
+            <span class="demo-number">04</span>
+            <span class="demo-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7.5v9l7.5-4.5z" /></svg></span>
+            <h3>Connectors and voice</h3>
+            <p>Authorize Drive, Slack, Gmail, and Calendar for read-only access, build a daily digest, and drive it all by voice.</p>
+            <span class="demo-meta"><em>Connectors</em><i>Watch video<span class="visually-hidden"> (opens in a new tab)</span></i></span>
+          </a>
+          <a class="demo-card reveal" href="https://drive.google.com/file/d/17s0fJHZU2ymBIV-Exn5ycwFt8Xq5NEyJ/view" target="_blank" rel="noopener noreferrer">
+            <span class="demo-number">05</span>
+            <span class="demo-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7.5v9l7.5-4.5z" /></svg></span>
+            <h3>Docker setup on macOS</h3>
+            <p>Get Docker ready before your first run so capabilities and local models start cleanly.</p>
+            <span class="demo-meta"><em>Setup</em><i>Watch video<span class="visually-hidden"> (opens in a new tab)</span></i></span>
+          </a>
+          <div class="demo-card is-pending reveal">
+            <span class="demo-number">06</span>
+            <span class="demo-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7v5l3.5 2" /><circle cx="12" cy="12" r="7.5" /></svg></span>
+            <h3>Docker setup on Windows</h3>
+            <p>The same walkthrough for Windows, from install through to a working Docker setup before your first run.</p>
+            <span class="demo-meta"><em>Setup</em><i>Recording soon</i></span>
+          </div>
+          <div class="demo-card is-pending reveal">
+            <span class="demo-number">07</span>
+            <span class="demo-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7v5l3.5 2" /><circle cx="12" cy="12" r="7.5" /></svg></span>
+            <h3>Ops and agent capabilities</h3>
+            <p>Configure Agents around Frames, tools, and models, run them in parallel with their own skills, hand off CoWork-style Tasks, and read the usage metrics.</p>
+            <span class="demo-meta"><em>Ops</em><i>Recording soon</i></span>
+          </div>
+        </div>
+      </section>
+
       <section class="capability-section section">
         <div class="capability-heading">
           <div>
-            <div class="section-kicker reveal"><span>03</span> One connected workspace</div>
+            <div class="section-kicker reveal"><span>04</span> One connected workspace</div>
             <h2 class="display-title reveal">
               Context flows in.<br /><span>Great work flows out.</span>
             </h2>
@@ -317,7 +387,7 @@
         <div class="agent-backdrop"></div>
         <div class="agent-grid">
           <div class="agent-copy">
-            <div class="section-kicker light reveal"><span>04</span> Agents</div>
+            <div class="section-kicker light reveal"><span>05</span> Agents</div>
             <h2 class="reveal">Delegate the task.<br /><em>Keep the control.</em></h2>
             <p class="reveal">
               Create focused Agents with the right Frames, tools, skills, and
@@ -366,7 +436,7 @@
       </section>
 
       <section class="start-section section" id="start">
-        <div class="section-kicker reveal"><span>05</span> Start exploring</div>
+        <div class="section-kicker reveal"><span>06</span> Start exploring</div>
         <div class="start-heading">
           <h2 class="display-title reveal">Five things to try<br /><span>on day one.</span></h2>
           <p class="reveal">This Collab release is made to be explored. Start here, then make it yours.</p>
@@ -414,7 +484,7 @@
       <section class="issues-section section" id="polishing">
         <div class="issues-intro">
           <div>
-            <div class="section-kicker reveal"><span>06</span> What we’re polishing</div>
+            <div class="section-kicker reveal"><span>07</span> What we’re polishing</div>
             <h2 class="display-title reveal">Getting better<br /><span>with every build.</span></h2>
           </div>
           <div class="issues-note reveal">
@@ -479,7 +549,7 @@
                 <span>Available July 28</span>
                 <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7" /><path d="M10 6v4l3 2" /></svg>
               </button>
-              <a class="button button-outline-light" href="https://openteams.com/support/" target="_blank">Get support</a>
+              <a class="button button-outline-light" href="https://openteams.com/support/" target="_blank" rel="noopener noreferrer">Get support<span class="visually-hidden"> (opens in a new tab)</span></a>
             </div>
           </div>
 
@@ -515,9 +585,9 @@
         </button>
         <p>Building the infrastructure for a distributed AI economy.</p>
         <div class="footer-links">
-          <a href="https://openteams.com/collab/" target="_blank">Collab</a>
-          <a href="https://openteams.com/intelligence-hubs/" target="_blank">Intelligence Hubs</a>
-          <a href="https://openteams.com/support/" target="_blank">Support</a>
+          <a href="https://openteams.com/collab/" target="_blank" rel="noopener noreferrer">Collab<span class="visually-hidden"> (opens in a new tab)</span></a>
+          <a href="https://openteams.com/intelligence-hubs/" target="_blank" rel="noopener noreferrer">Intelligence Hubs<span class="visually-hidden"> (opens in a new tab)</span></a>
+          <a href="https://openteams.com/support/" target="_blank" rel="noopener noreferrer">Support<span class="visually-hidden"> (opens in a new tab)</span></a>
         </div>
       </div>
       <div class="footer-bottom">
