@@ -22,7 +22,7 @@ const features = {
     label: "READ-ONLY CONTEXT",
     title: "Your tools, in the conversation.",
     description:
-      "Every connector has read-only access. Slack can read public and private channels.",
+      "Every connector has read-only access. Slack can read only public and private channels.",
     items: [
       "Search across connected sources",
       "No source editing or write-back",

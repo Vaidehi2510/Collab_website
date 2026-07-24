@@ -663,9 +663,9 @@ svg {
   position: absolute;
   z-index: 3;
   top: auto;
-  right: max(0px, calc((100vw - 1440px) / 2));
+  right: max(0px, calc((100vw - 1440px) / 2 - 30px));
   bottom: 58px;
-  width: min(53vw, 760px);
+  width: min(50vw, 690px);
   transform: perspective(1200px) rotateY(-7deg) rotateX(2deg);
 }
 
