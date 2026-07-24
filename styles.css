@@ -445,12 +445,6 @@ svg {
   stroke-width: 1.8;
 }
 
-.nav-cta-disabled {
-  border: 0;
-  opacity: 0.72;
-  cursor: not-allowed;
-}
-
 .menu-toggle,
 .mobile-menu {
   display: none;
@@ -2302,28 +2296,18 @@ svg {
   text-transform: uppercase;
 }
 
+/* Informational only — downloads happen at openteams.com/collab, so these
+   rows are labels rather than controls. */
 .platform-panel > .platform-option {
   display: grid;
   width: 100%;
-  grid-template-columns: 42px 1fr auto;
+  grid-template-columns: 42px 1fr;
   gap: 13px;
   align-items: center;
   padding: 15px 11px;
-  border: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   color: white;
-  background: transparent;
   text-align: left;
-  cursor: not-allowed;
-}
-
-.platform-panel > .platform-option.is-detected {
-  margin: 0 -8px;
-  width: calc(100% + 16px);
-  padding-right: 19px;
-  padding-left: 19px;
-  border-radius: 12px;
-  background: rgba(80, 112, 236, 0.13);
 }
 
 .platform-icon {
@@ -2353,15 +2337,6 @@ svg {
 .platform-panel small {
   color: rgba(255, 255, 255, 0.36);
   font-size: 9px;
-}
-
-.platform-panel .platform-option > i {
-  color: rgba(255, 255, 255, 0.36);
-  font-size: 9px;
-  font-weight: 700;
-  font-style: normal;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
 }
 
 footer {
@@ -2622,12 +2597,14 @@ footer {
     pointer-events: auto;
   }
 
-  .mobile-unavailable {
-    color: rgba(255, 255, 255, 0.42);
-    font-size: 16px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    cursor: not-allowed;
+  .mobile-download {
+    margin-top: 4px;
+    padding: 14px 26px;
+    border-radius: 12px;
+    color: var(--navy-950);
+    background: white;
+    font-size: 18px;
+    font-weight: 700;
   }
 
   .hero {
