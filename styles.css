@@ -2602,7 +2602,7 @@ footer {
     padding: 14px 26px;
     border-radius: 12px;
     color: var(--navy-950);
-    background: white;
+    background: var(--white);
     font-size: 18px;
     font-weight: 700;
   }
