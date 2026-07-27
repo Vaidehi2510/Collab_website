@@ -20,5 +20,5 @@ Import this repository into Vercel. No build command or framework preset is requ
 
 - `index.html` — page content and accessible structure
 - `styles.css` — visual system, responsive layouts, and motion
-- `script.js` — one-time brand reveal, feature switching, platform detection, and scroll effects
+- `script.js` — one-time brand reveal, feature switching, accessible navigation, and scroll effects
 - `assets/` — official vector logo mark and favicon

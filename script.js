@@ -16,7 +16,7 @@ const features = {
     response: "I’ll shape the launch around private, connected intelligence…",
     panelTitle: "Frames",
     panelMeta: "2 active",
-    panelItems: ["Collab release", "Brand voice", "Research"],
+    panelItems: ["Collab release", "Brand voice", "Research", "Team knowledge"],
   },
   connectors: {
     label: "READ-ONLY CONTEXT",
@@ -26,7 +26,7 @@ const features = {
     items: [
       "Search across connected sources",
       "No source editing or write-back",
-      "Built-in voice to text",
+      "Voice to text in chat and Cogs",
     ],
     aside: ["New chat", "Daily digest", "Team updates", "Weekly planning"],
     chatTitle: "Daily digest",
@@ -35,26 +35,45 @@ const features = {
     response: "I found 7 updates, 3 decisions, and 2 items that need your attention…",
     panelTitle: "Connections",
     panelMeta: "4 connected",
-    panelItems: ["Google Drive", "Slack", "Gmail"],
+    panelItems: ["Google Drive", "Slack", "Gmail", "Calendar"],
   },
-  agents: {
+  cogs: {
     label: "PURPOSE-BUILT COGS",
     title: "Focused work, built around your context.",
     description:
-      "Configure Cogs with the Frames, tools, skills, and models they need. Run work in parallel or hand off a longer task.",
+      "Configure discrete AI-powered workers with the Frames, tools, skills, models, and boundaries they need.",
     items: [
-      "Parallel Cog execution",
       "Per-Cog skills & models",
-      "CoWork-style Tasks",
+      "Approved tools & boundaries",
+      "Frame-oriented context",
     ],
-    aside: ["New task", "Launch team", "Research Cog", "Content Cog"],
-    chatTitle: "Launch team",
-    prompt: "Create a launch plan and assign the supporting work.",
-    responseTitle: "3 Cogs working in parallel",
-    response: "Research, messaging, and performance briefs are now underway…",
-    panelTitle: "Cogs",
-    panelMeta: "3 working",
-    panelItems: ["Research Cog", "Writing Cog", "Data Cog"],
+    aside: ["New Cog", "Model", "Frames", "Tools & skills"],
+    chatTitle: "Research Cog",
+    prompt: "Review the launch sources and surface the strongest evidence.",
+    responseTitle: "Working from 2 active Frames",
+    response: "I’m reviewing the approved sources with the configured model and tools…",
+    panelTitle: "Cog configuration",
+    panelMeta: "Ready",
+    panelItems: ["Model", "Frames", "Tools & skills", "Governance"],
+  },
+  ops: {
+    label: "SUPERVISED WORKFLOWS",
+    title: "Larger outcomes, clearly orchestrated.",
+    description:
+      "Use Ops for longer, CoWork-style work that coordinates one or more Cogs with shared context and human checkpoints.",
+    items: [
+      "CoWork-style workflows",
+      "Sequence or parallel Cogs",
+      "Human review checkpoints",
+    ],
+    aside: ["New Op", "Launch brief", "Quarterly review", "Research workflow"],
+    chatTitle: "Launch brief Op",
+    prompt: "Build the launch brief, review the evidence, and prepare it for approval.",
+    responseTitle: "Op moving through 3 stages",
+    response: "Research is complete. The draft is ready for your review checkpoint…",
+    panelTitle: "Op stages",
+    panelMeta: "2 of 3 complete",
+    panelItems: ["Research", "Draft", "Human review", "Ready to share"],
   },
 };
 
@@ -70,6 +89,16 @@ const brandRevealKey = "openteams:collab:intro-seen:v2";
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 let revealTimer;
 let revealTrigger;
+
+document.querySelectorAll('a[target="_blank"]').forEach((link) => {
+  if (link.hasAttribute("aria-label")) return;
+
+  const label = link.matches(".demo-card")
+    ? `Watch ${link.querySelector("h3")?.textContent || "release demo"}`
+    : link.textContent.replaceAll("↗", "").trim();
+
+  link.setAttribute("aria-label", `${label} (opens in a new tab)`);
+});
 
 function updateScroll() {
   const scrollable = document.documentElement.scrollHeight - window.innerHeight;
@@ -234,6 +263,7 @@ function updateFeature(key) {
   });
 
   window.clearTimeout(featureSwapTimer);
+  canvas.setAttribute("aria-busy", "true");
   mock.classList.add("is-swapping");
 
   featureSwapTimer = window.setTimeout(() => {
@@ -264,6 +294,7 @@ function updateFeature(key) {
 
     mock.dataset.mock = key;
     mock.classList.remove("is-swapping");
+    canvas.setAttribute("aria-busy", "false");
   }, 260);
 }
 
@@ -275,6 +306,9 @@ tabs.forEach((tab) => {
 
     if (event.key === "ArrowRight") nextIndex = (currentIndex + 1) % tabs.length;
     if (event.key === "ArrowLeft") nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+    const verticalStep = window.matchMedia("(max-width: 640px)").matches ? 2 : 1;
+    if (event.key === "ArrowDown") nextIndex = (currentIndex + verticalStep) % tabs.length;
+    if (event.key === "ArrowUp") nextIndex = (currentIndex - verticalStep + tabs.length) % tabs.length;
     if (event.key === "Home") nextIndex = 0;
     if (event.key === "End") nextIndex = tabs.length - 1;
     if (nextIndex === undefined) return;
@@ -285,14 +319,6 @@ tabs.forEach((tab) => {
     nextTab.focus();
   });
 });
-
-const userPlatform = navigator.userAgent.includes("Win")
-  ? "windows"
-  : navigator.userAgent.includes("Linux")
-    ? "linux"
-    : "mac";
-
-document.querySelector(`[data-platform="${userPlatform}"]`)?.classList.add("is-detected");
 
 document.querySelectorAll(".magnetic").forEach((element) => {
   element.addEventListener("mousemove", (event) => {
