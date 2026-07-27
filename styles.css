@@ -1521,6 +1521,34 @@ svg {
   line-height: 1.7;
 }
 
+/* Signed-out visitors hit a Google sign-in wall, so state the gate up front
+   rather than letting it be discovered after a click. Outranks `.demo-note p`,
+   which would otherwise win the font-size on type+class specificity. */
+.demo-note .demo-access {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin: -2px 0 18px;
+  padding: 11px 13px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--muted);
+  background: var(--white);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.demo-note .demo-access svg {
+  width: 15px;
+  flex: 0 0 auto;
+  margin-top: 1px;
+  stroke: var(--navy-800);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+  fill: none;
+}
+
 .demo-note a {
   color: var(--navy-800);
   font-size: 11px;
