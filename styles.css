@@ -3534,7 +3534,7 @@ footer {
 .collab-word {
   display: inline-block;
   padding: 0 0.08em 0.06em 0;
-  font-size: clamp(96px, 14vw, 184px);
+  font-size: clamp(92px, 12.8vw, 168px);
   font-weight: 700;
   letter-spacing: -0.05em;
   line-height: 0.84;
@@ -4649,7 +4649,7 @@ footer {
   }
 
   .collab-word {
-    font-size: clamp(96px, 22vw, 154px);
+    font-size: clamp(90px, 20vw, 142px);
   }
 
   .hero-summary {
@@ -4787,7 +4787,7 @@ footer {
     width: auto;
     margin-top: 0;
     padding-right: 0.08em;
-    font-size: clamp(82px, 25vw, 120px);
+    font-size: clamp(78px, 23vw, 112px);
   }
 
   .asterisk {
@@ -5008,7 +5008,7 @@ footer {
 
 @media (min-width: 1181px) {
   .hero-copy {
-    width: min(58vw, 710px);
+    width: min(55vw, 660px);
   }
 
   .hero-constellation {
@@ -5017,7 +5017,7 @@ footer {
     top: 50%;
     right: max(30px, calc((100vw - var(--max)) / 2));
     display: block;
-    width: clamp(385px, 34vw, 520px);
+    width: clamp(420px, 36vw, 580px);
     aspect-ratio: 520 / 560;
   }
 
@@ -5118,8 +5118,8 @@ footer {
   top: 50%;
   left: 50%;
   display: flex;
-  width: 156px;
-  height: 156px;
+  width: 170px;
+  height: 170px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -5155,8 +5155,8 @@ footer {
 
 .constellation-mark {
   display: grid;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 13px;
   background: white;
   box-shadow: 0 10px 28px rgba(0, 5, 20, 0.28);
@@ -5164,20 +5164,20 @@ footer {
 }
 
 .constellation-mark img {
-  width: 37px;
-  height: 37px;
+  width: 41px;
+  height: 41px;
 }
 
 .constellation-core b {
   margin-top: 9px;
-  font-size: 20px;
+  font-size: 23px;
   letter-spacing: -0.035em;
 }
 
 .constellation-core small {
   margin-top: 3px;
   color: rgba(255, 255, 255, 0.51);
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -5198,12 +5198,12 @@ footer {
   position: absolute;
   z-index: 5;
   display: grid;
-  width: min(43%, 210px);
-  min-height: 78px;
-  grid-template-columns: 36px 1fr;
-  gap: 11px;
+  width: min(45%, 235px);
+  min-height: 90px;
+  grid-template-columns: 42px 1fr;
+  gap: 13px;
   align-items: start;
-  padding: 14px;
+  padding: 16px;
   border: 1px solid rgba(151, 174, 255, 0.24);
   border-radius: 16px;
   color: white;
@@ -5216,61 +5216,110 @@ footer {
 
 .constellation-card > span {
   display: grid;
-  width: 36px;
-  height: 36px;
+  width: 42px;
+  height: 42px;
   border-radius: 11px;
   color: var(--yellow);
   background: rgba(250, 169, 68, 0.12);
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 800;
   place-items: center;
 }
 
-.constellation-card > div {
+.constellation-copy {
   min-width: 0;
 }
 
 .constellation-card b,
-.constellation-card small,
-.constellation-card em {
+.constellation-card small {
   display: block;
 }
 
 .constellation-card b {
-  font-size: 14px;
+  font-size: 18px;
   letter-spacing: -0.02em;
 }
 
 .constellation-card small {
-  margin-top: 3px;
-  color: rgba(255, 255, 255, 0.58);
-  font-size: 9px;
+  margin-top: 5px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 12px;
+  line-height: 1.3;
 }
 
-.constellation-card em {
-  max-width: 100%;
-  margin-top: 8px;
-  color: rgba(200, 212, 255, 0.72);
-  font-size: 7px;
+.constellation-bubbles {
+  position: absolute;
+  display: flex;
+  width: max-content;
+  max-width: 240px;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.constellation-bubbles span {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  padding: 6px 8px;
+  border: 1px solid rgba(165, 184, 255, 0.23);
+  border-radius: 999px;
+  color: rgba(237, 241, 255, 0.86);
+  background: rgba(0, 15, 58, 0.86);
+  box-shadow: 0 9px 22px rgba(0, 5, 20, 0.24);
+  font-size: 12px;
   font-weight: 700;
-  font-style: normal;
-  letter-spacing: 0.035em;
-  line-height: 1.35;
+  letter-spacing: 0.025em;
+  line-height: 1;
+  white-space: nowrap;
+  animation: bubble-drift 4.8s ease-in-out infinite alternate;
+}
+
+.constellation-bubbles span:nth-child(2) {
+  animation-delay: -1.2s;
+}
+
+.constellation-bubbles span:nth-child(3) {
+  animation-delay: -2.4s;
+}
+
+.constellation-bubbles span:nth-child(4) {
+  animation-delay: -3.6s;
+}
+
+.constellation-cogs .constellation-bubbles,
+.constellation-ops .constellation-bubbles {
+  top: calc(100% + 9px);
+}
+
+.constellation-connectors .constellation-bubbles,
+.constellation-catalog .constellation-bubbles {
+  bottom: calc(100% + 9px);
+}
+
+.constellation-cogs .constellation-bubbles,
+.constellation-connectors .constellation-bubbles {
+  left: 12px;
+}
+
+.constellation-ops .constellation-bubbles,
+.constellation-catalog .constellation-bubbles {
+  right: 12px;
+  justify-content: flex-end;
 }
 
 .constellation-cogs {
-  top: 5%;
+  top: 2%;
   left: 0;
 }
 
 .constellation-ops {
-  top: 14%;
+  top: 10%;
   right: 0;
   animation-delay: -1.8s;
 }
 
 .constellation-connectors {
-  bottom: 9%;
+  bottom: 8%;
   left: 0;
   animation-delay: -3.5s;
 }
@@ -5993,6 +6042,7 @@ footer {
   .constellation-core::before,
   .constellation-core::after,
   .constellation-card,
+  .constellation-bubbles span,
   .ribbon-arrow,
   .stream-loom path,
   .stream-knot,
