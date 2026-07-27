@@ -123,8 +123,7 @@
           <h1 class="hero-title reveal">
             <span class="hero-prefix">Meet the new</span>
             <span class="hero-product-line">
-              <span class="collab-word">Collab</span>
-              <span class="asterisk" aria-hidden="true">✦</span>
+              <span class="collab-word">Collab<span class="asterisk" aria-hidden="true">✦</span></span>
             </span>
           </h1>
           <p class="hero-lede reveal">
@@ -165,6 +164,68 @@
           </div>
         </div>
 
+        <div class="hero-constellation reveal" aria-hidden="true">
+          <div class="constellation-glow"></div>
+          <div class="constellation-ring ring-wide"></div>
+          <div class="constellation-ring ring-tight"></div>
+          <svg
+            class="constellation-paths"
+            viewBox="0 0 520 560"
+            preserveAspectRatio="none"
+            focusable="false"
+          >
+            <path d="M260 280 C170 210 145 130 95 94" />
+            <path d="M260 280 C350 210 382 170 438 150" />
+            <path d="M260 280 C170 350 150 410 88 440" />
+            <path d="M260 280 C350 350 385 415 440 458" />
+          </svg>
+
+          <div class="constellation-core">
+            <span class="constellation-mark"><img src="/assets/openteams-mark.svg" alt="" /></span>
+            <b>Collab</b>
+            <small>Your AI workspace</small>
+            <i></i>
+          </div>
+
+          <div class="constellation-card constellation-cogs">
+            <span>01</span>
+            <div>
+              <b>Cogs</b>
+              <small>Focused AI workers</small>
+              <em>Models</em>
+            </div>
+          </div>
+          <div class="constellation-card constellation-ops">
+            <span>02</span>
+            <div>
+              <b>Ops</b>
+              <small>Supervised workflows</small>
+              <em>Cogs · Checkpoints</em>
+            </div>
+          </div>
+          <div class="constellation-card constellation-connectors">
+            <span>03</span>
+            <div>
+              <b>Connectors</b>
+              <small>Read-only sources</small>
+              <em>Drive · Slack · Gmail · Calendar</em>
+            </div>
+          </div>
+          <div class="constellation-card constellation-catalog">
+            <span>04</span>
+            <div>
+              <b>Catalog</b>
+              <small>Apps in one place</small>
+              <em>Discover · Open · Work</em>
+            </div>
+          </div>
+
+          <div class="constellation-status">
+            <i></i>
+            <span>One connected workspace</span>
+          </div>
+        </div>
+
         <a class="scroll-cue" href="#experience" aria-label="Scroll to discover">
           <span>Scroll to discover</span>
           <i></i>
@@ -193,86 +254,51 @@
           </div>
         </div>
 
-        <div class="workspace-map reveal">
-          <div class="workspace-map-grid" aria-hidden="true"></div>
-          <svg
-            class="workspace-connections"
-            viewBox="0 0 1200 720"
-            preserveAspectRatio="none"
-            aria-hidden="true"
-          >
-            <path class="edge-cogs" d="M600 360 C500 300 430 205 320 168" />
-            <path class="edge-ops" d="M600 360 C700 300 770 205 880 168" />
-            <path class="edge-connectors" d="M600 360 C500 420 430 515 320 552" />
-            <path class="edge-layout" d="M600 360 C700 420 770 515 880 552" />
-          </svg>
-
-          <div class="workspace-core">
-            <span>COLLAB</span>
-            <small>Your AI workspace</small>
-            <i aria-hidden="true"></i>
-          </div>
-
-          <article class="workspace-node map-cogs">
-            <span class="workspace-node-number">01</span>
-            <div>
-              <h3>Cogs</h3>
-              <p>Focused AI workers</p>
+        <div
+          class="release-ribbon reveal"
+          role="group"
+          aria-label="How work moves through Collab"
+        >
+          <article class="ribbon-card ribbon-context">
+            <span class="ribbon-number">01</span>
+            <div class="ribbon-icon" aria-hidden="true">
+              <i></i><i></i><i></i>
             </div>
-            <div class="workspace-bubbles" aria-label="Cogs connect to models">
-              <span>Models</span>
-            </div>
+            <small>Orient</small>
+            <h3>Frame the context</h3>
+            <p>Bring the right knowledge into the conversation as live Frames.</p>
           </article>
-
-          <article class="workspace-node map-ops">
-            <span class="workspace-node-number">02</span>
-            <div>
-              <h3>Ops</h3>
-              <p>Supervised workflows</p>
+          <span class="ribbon-arrow" aria-hidden="true">→</span>
+          <article class="ribbon-card ribbon-focus">
+            <span class="ribbon-number">02</span>
+            <div class="ribbon-icon" aria-hidden="true">
+              <i></i><i></i><i></i>
             </div>
-            <div class="workspace-bubbles" aria-label="Ops coordinate Cogs, checkpoints, and outcomes">
-              <span>Cogs</span>
-              <span>Checkpoints</span>
-              <span>Outcomes</span>
-            </div>
+            <small>Focus</small>
+            <h3>Configure a Cog</h3>
+            <p>Pair a model with the tools, skills, and boundaries the work needs.</p>
           </article>
-
-          <article class="workspace-node map-connectors">
-            <span class="workspace-node-number">03</span>
-            <div>
-              <h3>Connectors</h3>
-              <p>Read-only sources</p>
+          <span class="ribbon-arrow" aria-hidden="true">→</span>
+          <article class="ribbon-card ribbon-coordinate">
+            <span class="ribbon-number">03</span>
+            <div class="ribbon-icon" aria-hidden="true">
+              <i></i><i></i><i></i>
             </div>
-            <div class="workspace-bubbles connector-bubbles" aria-label="Google Drive, Slack, Gmail, and Calendar">
-              <span>Drive</span>
-              <span>Slack</span>
-              <span>Gmail</span>
-              <span>Calendar</span>
-            </div>
+            <small>Coordinate</small>
+            <h3>Run a supervised Op</h3>
+            <p>Move larger outcomes through clear stages and human checkpoints.</p>
           </article>
-
-          <article class="workspace-node map-layout">
-            <span class="workspace-node-number">04</span>
-            <div>
-              <h3>Layout</h3>
-              <p>One connected surface</p>
+          <span class="ribbon-arrow" aria-hidden="true">→</span>
+          <article class="ribbon-card ribbon-discover">
+            <span class="ribbon-number">04</span>
+            <div class="ribbon-icon" aria-hidden="true">
+              <i></i><i></i><i></i>
             </div>
-            <div class="workspace-bubbles" aria-label="Chat, Frames, and Catalog">
-              <span>Chat</span>
-              <span>Frames</span>
-              <span>Catalog</span>
-            </div>
+            <small>Discover</small>
+            <h3>Find it in Catalog</h3>
+            <p>Keep the apps and experiences you use together in one place.</p>
           </article>
-
-          <div class="workspace-privacy">
-            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 9V6.8a4 4 0 0 1 8 0V9M4.5 9h11v8h-11z" /></svg>
-            <span><b>Private by default</b><small>Your context stays under your control</small></span>
-          </div>
         </div>
-        <p class="workspace-caption reveal">
-          Frames orient the work. Models power Cogs. Ops coordinate larger outcomes.
-          Read-only connectors and a unified layout bring it all into Collab.
-        </p>
       </section>
 
       <section class="feature-showcase section" id="explore">
@@ -453,7 +479,7 @@
         </div>
       </section>
 
-      <section class="capability-section section">
+      <section class="capability-section section" id="connectors">
         <div class="capability-heading">
           <div>
             <div class="section-kicker reveal"><span>04</span> One connected workspace</div>
@@ -468,24 +494,68 @@
           </p>
         </div>
 
-        <div class="orbit-stage reveal">
-          <div class="orbit-ring ring-one"></div>
-          <div class="orbit-ring ring-two"></div>
-          <div class="orbit-core">
-            <span class="orbit-logo"><img src="/assets/openteams-mark.svg" alt="" /></span>
-            <b>Collab</b>
-            <small>Your private AI</small>
+        <div class="context-stream reveal">
+          <div class="stream-sources">
+            <article class="stream-source source-drive">
+              <span class="node-letter drive">D</span>
+              <div><b>Drive</b><small>Read-only files</small></div>
+              <i>Connected</i>
+            </article>
+            <article class="stream-source source-slack">
+              <span class="node-letter slack">S</span>
+              <div><b>Slack</b><small>Public + private channels only</small></div>
+              <i>Connected</i>
+            </article>
+            <article class="stream-source source-gmail">
+              <span class="node-letter gmail">M</span>
+              <div><b>Gmail</b><small>Read-only mail</small></div>
+              <i>Connected</i>
+            </article>
+            <article class="stream-source source-calendar">
+              <span class="node-letter calendar">31</span>
+              <div><b>Calendar</b><small>Read-only events</small></div>
+              <i>Connected</i>
+            </article>
           </div>
-          <div class="orbit-node node-drive"><span class="node-letter drive">D</span><b>Drive</b><small>Read-only</small></div>
-          <div class="orbit-node node-slack"><span class="node-letter slack">S</span><b>Slack</b><small>Read-only</small></div>
-          <div class="orbit-node node-gmail"><span class="node-letter gmail">M</span><b>Gmail</b><small>Read-only</small></div>
-          <div class="orbit-node node-calendar"><span class="node-letter calendar">31</span><b>Calendar</b><small>Read-only</small></div>
-          <svg class="flow-lines" viewBox="0 0 1200 520" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M280 120 C420 120, 430 260, 565 260" />
-            <path d="M270 400 C430 400, 430 280, 565 280" />
-            <path d="M920 120 C780 120, 770 260, 635 260" />
-            <path d="M930 400 C770 400, 770 280, 635 280" />
-          </svg>
+
+          <div class="stream-loom" aria-hidden="true">
+            <svg viewBox="0 0 250 430" preserveAspectRatio="none" focusable="false">
+              <path class="thread thread-drive" d="M0 48 C95 48 125 178 250 208" />
+              <path class="thread thread-slack" d="M0 158 C90 158 130 198 250 212" />
+              <path class="thread thread-gmail" d="M0 268 C90 268 130 226 250 216" />
+              <path class="thread thread-calendar" d="M0 378 C95 378 125 248 250 220" />
+            </svg>
+            <span class="stream-knot knot-one"></span>
+            <span class="stream-knot knot-two"></span>
+            <span class="stream-knot knot-three"></span>
+          </div>
+
+          <div class="stream-output">
+            <div class="stream-output-head">
+              <span><i></i>Read-only context stream</span>
+              <small>4 sources</small>
+            </div>
+            <div class="stream-query">
+              <small>Working context</small>
+              <p>What changed across the Collab launch?</p>
+            </div>
+            <div class="stream-event">
+              <span class="stream-source-tag drive">Drive</span>
+              <div><b>Launch plan updated</b><small>Product launch brief · moments ago</small></div>
+            </div>
+            <div class="stream-event">
+              <span class="stream-source-tag slack">Slack</span>
+              <div><b>2 new team decisions</b><small>Public + private channels only</small></div>
+            </div>
+            <div class="stream-event">
+              <span class="stream-source-tag calendar">Calendar</span>
+              <div><b>Review scheduled</b><small>Release checkpoint · 2:30 PM</small></div>
+            </div>
+            <div class="stream-ready">
+              <span><i></i>Context assembled</span>
+              <b>Ready for chat</b>
+            </div>
+          </div>
         </div>
       </section>
 
