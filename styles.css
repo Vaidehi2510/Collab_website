@@ -67,6 +67,15 @@ svg {
   display: block;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 .brand-reveal {
   position: fixed;
   z-index: 2000;
