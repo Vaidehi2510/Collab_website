@@ -5053,41 +5053,15 @@ footer {
   transform: translate(-50%, -50%);
 }
 
-.constellation-ring::after {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border: 2px solid var(--navy-900);
-  border-radius: 50%;
-  background: #74cfff;
-  box-shadow: 0 0 18px rgba(116, 207, 255, 0.75);
-  content: "";
-}
-
 .constellation-ring.ring-wide {
   width: 89%;
   height: 76%;
   border-style: dashed;
 }
 
-.constellation-ring.ring-wide::after {
-  top: 19%;
-  right: 4.5%;
-  animation: constellation-beacon 4.8s ease-in-out infinite;
-}
-
 .constellation-ring.ring-tight {
   width: 58%;
   height: 54%;
-}
-
-.constellation-ring.ring-tight::after {
-  bottom: 6%;
-  left: 20%;
-  width: 6px;
-  height: 6px;
-  background: var(--orange);
-  animation: constellation-beacon 4.8s 1.6s ease-in-out infinite;
 }
 
 .constellation-paths {
@@ -5167,17 +5141,6 @@ footer {
   text-transform: uppercase;
 }
 
-.constellation-core > i {
-  position: absolute;
-  right: 25px;
-  bottom: 26px;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #67dfa5;
-  box-shadow: 0 0 0 5px rgba(103, 223, 165, 0.1);
-}
-
 .constellation-card {
   position: absolute;
   z-index: 5;
@@ -5210,6 +5173,37 @@ footer {
 .constellation-card b {
   font-size: 18px;
   letter-spacing: -0.02em;
+}
+
+.constellation-copy b {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.constellation-copy b::before {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #74cfff;
+  box-shadow: 0 0 0 4px rgba(116, 207, 255, 0.1);
+  content: "";
+}
+
+.constellation-ops .constellation-copy b::before {
+  background: #a89bff;
+  box-shadow: 0 0 0 4px rgba(168, 155, 255, 0.1);
+}
+
+.constellation-connectors .constellation-copy b::before {
+  background: #c8d4ff;
+  box-shadow: 0 0 0 4px rgba(200, 212, 255, 0.1);
+}
+
+.constellation-catalog .constellation-copy b::before {
+  background: #ffd36f;
+  box-shadow: 0 0 0 4px rgba(255, 211, 111, 0.1);
 }
 
 .constellation-card small {
@@ -5873,11 +5867,6 @@ footer {
   50% { transform: translateY(-7px); }
 }
 
-@keyframes constellation-beacon {
-  0%, 100% { opacity: 0.45; transform: scale(0.75); }
-  50% { opacity: 1; transform: scale(1.12); }
-}
-
 @keyframes ribbon-arrow-pulse {
   0%, 100% { box-shadow: 0 0 0 0 rgba(77, 117, 254, 0); transform: translateX(0); }
   50% { box-shadow: 0 0 0 7px rgba(77, 117, 254, 0.06); transform: translateX(3px); }
@@ -6009,7 +5998,6 @@ footer {
 
 @media (prefers-reduced-motion: reduce) {
   .asterisk,
-  .constellation-ring::after,
   .constellation-paths path,
   .constellation-core::before,
   .constellation-core::after,
