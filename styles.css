@@ -2098,7 +2098,7 @@ svg {
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
   margin: 70px 0 0;
   padding: 0;
@@ -2760,11 +2760,7 @@ footer {
   }
 
   .issues-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .issue-card:last-child {
-    grid-column: span 2;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .download-inner {
@@ -2988,10 +2984,6 @@ footer {
 
   .issues-list {
     grid-template-columns: 1fr;
-  }
-
-  .issue-card:last-child {
-    grid-column: auto;
   }
 
   .issue-card {
