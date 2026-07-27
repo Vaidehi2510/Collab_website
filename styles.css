@@ -5153,24 +5153,8 @@ footer {
   animation-delay: 1.45s;
 }
 
-.constellation-mark {
-  display: grid;
-  width: 48px;
-  height: 48px;
-  border-radius: 13px;
-  background: white;
-  box-shadow: 0 10px 28px rgba(0, 5, 20, 0.28);
-  place-items: center;
-}
-
-.constellation-mark img {
-  width: 41px;
-  height: 41px;
-}
-
 .constellation-core b {
-  margin-top: 9px;
-  font-size: 23px;
+  font-size: 27px;
   letter-spacing: -0.035em;
 }
 
