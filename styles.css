@@ -5184,9 +5184,9 @@ footer {
   display: grid;
   width: min(45%, 235px);
   min-height: 90px;
-  grid-template-columns: 42px 1fr;
-  gap: 13px;
-  align-items: start;
+  grid-template-columns: 1fr;
+  align-content: center;
+  align-items: center;
   padding: 16px;
   border: 1px solid rgba(151, 174, 255, 0.24);
   border-radius: 16px;
@@ -5196,18 +5196,6 @@ footer {
   box-shadow: 0 18px 42px rgba(0, 5, 20, 0.32);
   backdrop-filter: blur(16px);
   animation: constellation-float 6s ease-in-out infinite;
-}
-
-.constellation-card > span {
-  display: grid;
-  width: 42px;
-  height: 42px;
-  border-radius: 11px;
-  color: var(--yellow);
-  background: rgba(250, 169, 68, 0.12);
-  font-size: 10px;
-  font-weight: 800;
-  place-items: center;
 }
 
 .constellation-copy {
