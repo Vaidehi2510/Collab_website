@@ -3569,6 +3569,7 @@ footer {
 }
 
 .hero-actions {
+  justify-content: center;
   margin-top: 31px;
 }
 
